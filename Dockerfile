@@ -73,7 +73,7 @@ RUN set -x && \
       --with-linux=$d \
       --with-linux-obj=$d
 
-RUN make check
+RUN make check -j $(nproc --all)
 
 # OUTPUT:
 
