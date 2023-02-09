@@ -74,580 +74,306 @@ RUN make check
 
 # Making check in include
 # make[1]: Entering directory '/zfs/include'
-# Making check in sys
-# make[2]: Entering directory '/zfs/include/sys'
-# Making check in fm
-# make[3]: Entering directory '/zfs/include/sys/fm'
-# Making check in fs
-# make[4]: Entering directory '/zfs/include/sys/fm/fs'
-# make[4]: Nothing to be done for 'check'.
-# make[4]: Leaving directory '/zfs/include/sys/fm/fs'
-# make[4]: Entering directory '/zfs/include/sys/fm'
-# make[4]: Nothing to be done for 'check-am'.
-# make[4]: Leaving directory '/zfs/include/sys/fm'
-# make[3]: Leaving directory '/zfs/include/sys/fm'
-# Making check in fs
-# make[3]: Entering directory '/zfs/include/sys/fs'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/include/sys/fs'
-# Making check in crypto
-# make[3]: Entering directory '/zfs/include/sys/crypto'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/include/sys/crypto'
-# Making check in lua
-# make[3]: Entering directory '/zfs/include/sys/lua'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/include/sys/lua'
-# Making check in sysevent
-# make[3]: Entering directory '/zfs/include/sys/sysevent'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/include/sys/sysevent'
-# Making check in zstd
-# make[3]: Entering directory '/zfs/include/sys/zstd'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/include/sys/zstd'
-# make[3]: Entering directory '/zfs/include/sys'
-# make[3]: Nothing to be done for 'check-am'.
-# make[3]: Leaving directory '/zfs/include/sys'
-# make[2]: Leaving directory '/zfs/include/sys'
-# Making check in os
-# make[2]: Entering directory '/zfs/include/os'
-# Making check in linux
-# make[3]: Entering directory '/zfs/include/os/linux'
-# Making check in kernel
-# make[4]: Entering directory '/zfs/include/os/linux/kernel'
-# Making check in linux
-# make[5]: Entering directory '/zfs/include/os/linux/kernel/linux'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/include/os/linux/kernel/linux'
-# make[5]: Entering directory '/zfs/include/os/linux/kernel'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/include/os/linux/kernel'
-# make[4]: Leaving directory '/zfs/include/os/linux/kernel'
-# Making check in spl
-# make[4]: Entering directory '/zfs/include/os/linux/spl'
-# Making check in rpc
-# make[5]: Entering directory '/zfs/include/os/linux/spl/rpc'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/include/os/linux/spl/rpc'
-# Making check in sys
-# make[5]: Entering directory '/zfs/include/os/linux/spl/sys'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/include/os/linux/spl/sys'
-# make[5]: Entering directory '/zfs/include/os/linux/spl'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/include/os/linux/spl'
-# make[4]: Leaving directory '/zfs/include/os/linux/spl'
-# Making check in zfs
-# make[4]: Entering directory '/zfs/include/os/linux/zfs'
-# Making check in sys
-# make[5]: Entering directory '/zfs/include/os/linux/zfs/sys'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/include/os/linux/zfs/sys'
-# make[5]: Entering directory '/zfs/include/os/linux/zfs'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/include/os/linux/zfs'
-# make[4]: Leaving directory '/zfs/include/os/linux/zfs'
-# make[4]: Entering directory '/zfs/include/os/linux'
-# make[4]: Nothing to be done for 'check-am'.
-# make[4]: Leaving directory '/zfs/include/os/linux'
-# make[3]: Leaving directory '/zfs/include/os/linux'
-# make[3]: Entering directory '/zfs/include/os'
-# make[3]: Nothing to be done for 'check-am'.
-# make[3]: Leaving directory '/zfs/include/os'
-# make[2]: Leaving directory '/zfs/include/os'
-# make[2]: Entering directory '/zfs/include'
-# make[2]: Nothing to be done for 'check-am'.
-# make[2]: Leaving directory '/zfs/include'
+# make[1]: Nothing to be done for 'check'.
 # make[1]: Leaving directory '/zfs/include'
-# Making check in rpm
-# make[1]: Entering directory '/zfs/rpm'
-# Making check in generic
-# make[2]: Entering directory '/zfs/rpm/generic'
-# make[2]: Nothing to be done for 'check'.
-# make[2]: Leaving directory '/zfs/rpm/generic'
-# Making check in redhat
-# make[2]: Entering directory '/zfs/rpm/redhat'
-# make[2]: Nothing to be done for 'check'.
-# make[2]: Leaving directory '/zfs/rpm/redhat'
-# make[2]: Entering directory '/zfs/rpm'
-# make[2]: Nothing to be done for 'check-am'.
-# make[2]: Leaving directory '/zfs/rpm'
-# make[1]: Leaving directory '/zfs/rpm'
-# Making check in man
-# make[1]: Entering directory '/zfs/man'
-#   GEN      man8/zed.8
-#   GEN      man8/zfs-mount-generator.8
-# make[1]: Leaving directory '/zfs/man'
-# Making check in scripts
-# make[1]: Entering directory '/zfs/scripts'
-# /usr/bin/sed -e '\|^export BIN_DIR=|s|$|/zfs/bin|' \
-#         -e '\|^export SBIN_DIR=|s|$|/zfs/bin|' \
-#         -e '\|^export LIBEXEC_DIR=|s|$|/zfs/bin|' \
-#         -e '\|^export ZTS_DIR=|s|$|/zfs/tests|' \
-#         -e '\|^export SCRIPT_DIR=|s|$|/zfs/scripts|' \
-#         /zfs/scripts/common.sh.in >common.sh
-# echo "$EXTRA_ENVIRONMENT" >>common.sh
-# make[1]: Leaving directory '/zfs/scripts'
-# Making check in lib
-# make[1]: Entering directory '/zfs/lib'
-# Making check in libavl
-# make[2]: Entering directory '/zfs/lib/libavl'
-#   CC       avl.lo
-#   CCLD     libavl.la
-# make[2]: Leaving directory '/zfs/lib/libavl'
-# Making check in libicp
-# make[2]: Entering directory '/zfs/lib/libicp'
-#   CC       spi/kcf_spi.lo
-#   CC       api/kcf_ctxops.lo
-#   CC       api/kcf_digest.lo
-#   CC       api/kcf_cipher.lo
-#   CC       api/kcf_miscapi.lo
-#   CC       api/kcf_mac.lo
-#   CC       algs/aes/aes_impl_aesni.lo
-#   CC       algs/aes/aes_impl_generic.lo
-#   CC       algs/aes/aes_impl_x86-64.lo
-#   CC       algs/aes/aes_impl.lo
-#   CC       algs/aes/aes_modes.lo
-#   CC       algs/edonr/edonr.lo
-#   CC       algs/modes/modes.lo
-#   CC       algs/modes/cbc.lo
-#   CC       algs/modes/gcm_generic.lo
-#   CC       algs/modes/gcm_pclmulqdq.lo
-#   CC       algs/modes/gcm.lo
-#   CC       algs/modes/ctr.lo
-#   CC       algs/modes/ccm.lo
-#   CC       algs/modes/ecb.lo
-#   CC       algs/sha2/sha2.lo
-#   CC       algs/skein/skein.lo
-#   CC       algs/skein/skein_block.lo
-#   CC       algs/skein/skein_iv.lo
-#   CC       illumos-crypto.lo
-#   CC       io/aes.lo
-#   CC       io/edonr_mod.lo
-#   CC       io/sha2_mod.lo
-#   CC       io/skein_mod.lo
-#   CC       os/modhash.lo
-#   CC       os/modconf.lo
-#   CC       core/kcf_sched.lo
-#   CC       core/kcf_prov_lib.lo
-#   CC       core/kcf_callprov.lo
-#   CC       core/kcf_mech_tabs.lo
-#   CC       core/kcf_prov_tabs.lo
-#   CC       asm-x86_64/aes/aeskey.lo
-#   CPPAS    asm-x86_64/aes/aes_amd64.lo
-#   CPPAS    asm-x86_64/aes/aes_aesni.lo
-#   CPPAS    asm-x86_64/modes/gcm_pclmulqdq.lo
-#   CPPAS    asm-x86_64/modes/aesni-gcm-x86_64.lo
-#   CPPAS    asm-x86_64/modes/ghash-x86_64.lo
-#   CPPAS    asm-x86_64/sha2/sha256_impl.lo
-#   CPPAS    asm-x86_64/sha2/sha512_impl.lo
+# Making check in tests/zfs-tests/tests
+# make[1]: Entering directory '/zfs/tests/zfs-tests/tests'
+#   GEN      functional/pyzfs/pyzfs_unittest.ksh
+#   GEN      functional/pam/utilities.kshlib
+# make[1]: Leaving directory '/zfs/tests/zfs-tests/tests'
+# make[1]: Entering directory '/zfs'
+#   CC       cmd/raidz_test/raidz_test-raidz_bench.o
+#   CC       cmd/raidz_test/raidz_test-raidz_test.o
+#   CC       lib/libzpool/libzpool_la-kernel.lo
+#   CC       lib/libzpool/libzpool_la-taskq.lo
+#   CC       lib/libzpool/libzpool_la-util.lo
+#   CC       module/lua/libzpool_la-lapi.lo
+#   CC       module/lua/libzpool_la-lauxlib.lo
+#   CC       module/lua/libzpool_la-lbaselib.lo
+#   CC       module/lua/libzpool_la-lcode.lo
+#   CC       module/lua/libzpool_la-lcompat.lo
+#   CC       module/lua/libzpool_la-lcorolib.lo
+#   CC       module/lua/libzpool_la-lctype.lo
+#   CC       module/lua/libzpool_la-ldebug.lo
+#   CC       module/lua/libzpool_la-ldo.lo
+#   CC       module/lua/libzpool_la-lfunc.lo
+#   CC       module/lua/libzpool_la-lgc.lo
+#   CC       module/lua/libzpool_la-llex.lo
+#   CC       module/lua/libzpool_la-lmem.lo
+#   CC       module/lua/libzpool_la-lobject.lo
+#   CC       module/lua/libzpool_la-lopcodes.lo
+#   CC       module/lua/libzpool_la-lparser.lo
+#   CC       module/lua/libzpool_la-lstate.lo
+#   CC       module/lua/libzpool_la-lstring.lo
+#   CC       module/lua/libzpool_la-lstrlib.lo
+#   CC       module/lua/libzpool_la-ltable.lo
+#   CC       module/lua/libzpool_la-ltablib.lo
+#   CC       module/lua/libzpool_la-ltm.lo
+#   CC       module/lua/libzpool_la-lvm.lo
+#   CC       module/lua/libzpool_la-lzio.lo
+#   CC       module/os/linux/zfs/libzpool_la-abd_os.lo
+#   CC       module/os/linux/zfs/libzpool_la-arc_os.lo
+#   CC       module/os/linux/zfs/libzpool_la-trace.lo
+#   CC       module/os/linux/zfs/libzpool_la-vdev_file.lo
+#   CC       module/os/linux/zfs/libzpool_la-zfs_debug.lo
+#   CC       module/os/linux/zfs/libzpool_la-zfs_racct.lo
+#   CC       module/os/linux/zfs/libzpool_la-zfs_znode.lo
+#   CC       module/os/linux/zfs/libzpool_la-zio_crypt.lo
+#   CC       module/zcommon/libzpool_la-cityhash.lo
+#   CC       module/zcommon/libzpool_la-zfeature_common.lo
+#   CC       module/zcommon/libzpool_la-zfs_comutil.lo
+#   CC       module/zcommon/libzpool_la-zfs_deleg.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_aarch64_neon.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_avx512.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_intel.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_sse.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_superscalar.lo
+#   CC       module/zcommon/libzpool_la-zfs_fletcher_superscalar4.lo
+#   CC       module/zcommon/libzpool_la-zfs_namecheck.lo
+#   CC       module/zcommon/libzpool_la-zfs_prop.lo
+#   CC       module/zcommon/libzpool_la-zpool_prop.lo
+#   CC       module/zcommon/libzpool_la-zprop_common.lo
+#   CC       module/zfs/libzpool_la-abd.lo
+#   CC       module/zfs/libzpool_la-aggsum.lo
+#   CC       module/zfs/libzpool_la-arc.lo
+#   CC       module/zfs/libzpool_la-blake3_zfs.lo
+#   CC       module/zfs/libzpool_la-blkptr.lo
+#   CC       module/zfs/libzpool_la-bplist.lo
+#   CC       module/zfs/libzpool_la-bpobj.lo
+#   CC       module/zfs/libzpool_la-bptree.lo
+#   CC       module/zfs/libzpool_la-bqueue.lo
+#   CC       module/zfs/libzpool_la-btree.lo
+#   CC       module/zfs/libzpool_la-dbuf.lo
+#   CC       module/zfs/libzpool_la-dbuf_stats.lo
+#   CC       module/zfs/libzpool_la-ddt.lo
+#   CC       module/zfs/libzpool_la-ddt_zap.lo
+#   CC       module/zfs/libzpool_la-dmu.lo
+#   CC       module/zfs/libzpool_la-dmu_diff.lo
+#   CC       module/zfs/libzpool_la-dmu_object.lo
+#   CC       module/zfs/libzpool_la-dmu_objset.lo
+#   CC       module/zfs/libzpool_la-dmu_recv.lo
+#   CC       module/zfs/libzpool_la-dmu_redact.lo
+#   CC       module/zfs/libzpool_la-dmu_send.lo
+#   CC       module/zfs/libzpool_la-dmu_traverse.lo
+#   CC       module/zfs/libzpool_la-dmu_tx.lo
+#   CC       module/zfs/libzpool_la-dmu_zfetch.lo
+#   CC       module/zfs/libzpool_la-dnode.lo
+#   CC       module/zfs/libzpool_la-dnode_sync.lo
+#   CC       module/zfs/libzpool_la-dsl_bookmark.lo
+#   CC       module/zfs/libzpool_la-dsl_crypt.lo
+#   CC       module/zfs/libzpool_la-dsl_dataset.lo
+#   CC       module/zfs/libzpool_la-dsl_deadlist.lo
+#   CC       module/zfs/libzpool_la-dsl_deleg.lo
+#   CC       module/zfs/libzpool_la-dsl_destroy.lo
+#   CC       module/zfs/libzpool_la-dsl_dir.lo
+#   CC       module/zfs/libzpool_la-dsl_pool.lo
+#   CC       module/zfs/libzpool_la-dsl_prop.lo
+#   CC       module/zfs/libzpool_la-dsl_scan.lo
+#   CC       module/zfs/libzpool_la-dsl_synctask.lo
+#   CC       module/zfs/libzpool_la-dsl_userhold.lo
+#   CC       module/zfs/libzpool_la-edonr_zfs.lo
+#   CC       module/zfs/libzpool_la-fm.lo
+#   CC       module/zfs/libzpool_la-gzip.lo
+#   CC       module/zfs/libzpool_la-hkdf.lo
+#   CC       module/zfs/libzpool_la-lz4.lo
+#   CC       module/zfs/libzpool_la-lz4_zfs.lo
+#   CC       module/zfs/libzpool_la-lzjb.lo
+#   CC       module/zfs/libzpool_la-metaslab.lo
+#   CC       module/zfs/libzpool_la-mmp.lo
+#   CC       module/zfs/libzpool_la-multilist.lo
+#   CC       module/zfs/libzpool_la-objlist.lo
+#   CC       module/zfs/libzpool_la-pathname.lo
+#   CC       module/zfs/libzpool_la-range_tree.lo
+#   CC       module/zfs/libzpool_la-refcount.lo
+#   CC       module/zfs/libzpool_la-rrwlock.lo
+#   CC       module/zfs/libzpool_la-sa.lo
+#   CC       module/zfs/libzpool_la-sha256.lo
+#   CC       module/zfs/libzpool_la-skein_zfs.lo
+#   CC       module/zfs/libzpool_la-spa.lo
+#   CC       module/zfs/libzpool_la-spa_checkpoint.lo
+#   CC       module/zfs/libzpool_la-spa_config.lo
+#   CC       module/zfs/libzpool_la-spa_errlog.lo
+#   CC       module/zfs/libzpool_la-spa_history.lo
+#   CC       module/zfs/libzpool_la-spa_log_spacemap.lo
+#   CC       module/zfs/libzpool_la-spa_misc.lo
+#   CC       module/zfs/libzpool_la-spa_stats.lo
+#   CC       module/zfs/libzpool_la-space_map.lo
+#   CC       module/zfs/libzpool_la-space_reftree.lo
+#   CC       module/zfs/libzpool_la-txg.lo
+#   CC       module/zfs/libzpool_la-uberblock.lo
+#   CC       module/zfs/libzpool_la-unique.lo
+#   CC       module/zfs/libzpool_la-vdev.lo
+#   CC       module/zfs/libzpool_la-vdev_cache.lo
+#   CC       module/zfs/libzpool_la-vdev_draid.lo
+#   CC       module/zfs/libzpool_la-vdev_draid_rand.lo
+#   CC       module/zfs/libzpool_la-vdev_indirect.lo
+#   CC       module/zfs/libzpool_la-vdev_indirect_births.lo
+#   CC       module/zfs/libzpool_la-vdev_indirect_mapping.lo
+#   CC       module/zfs/libzpool_la-vdev_initialize.lo
+#   CC       module/zfs/libzpool_la-vdev_label.lo
+#   CC       module/zfs/libzpool_la-vdev_mirror.lo
+#   CC       module/zfs/libzpool_la-vdev_missing.lo
+#   CC       module/zfs/libzpool_la-vdev_queue.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_aarch64_neon.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_aarch64_neonx2.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_avx2.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_avx512bw.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_avx512f.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_powerpc_altivec.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_scalar.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_sse2.lo
+#   CC       module/zfs/libzpool_la-vdev_raidz_math_ssse3.lo
+#   CC       module/zfs/libzpool_la-vdev_rebuild.lo
+#   CC       module/zfs/libzpool_la-vdev_removal.lo
+#   CC       module/zfs/libzpool_la-vdev_root.lo
+#   CC       module/zfs/libzpool_la-vdev_trim.lo
+#   CC       module/zfs/libzpool_la-zap.lo
+#   CC       module/zfs/libzpool_la-zap_leaf.lo
+#   CC       module/zfs/libzpool_la-zap_micro.lo
+#   CC       module/zfs/libzpool_la-zcp.lo
+#   CC       module/zfs/libzpool_la-zcp_get.lo
+#   CC       module/zfs/libzpool_la-zcp_global.lo
+#   CC       module/zfs/libzpool_la-zcp_iter.lo
+#   CC       module/zfs/libzpool_la-zcp_set.lo
+#   CC       module/zfs/libzpool_la-zcp_synctask.lo
+#   CC       module/zfs/libzpool_la-zfeature.lo
+#   CC       module/zfs/libzpool_la-zfs_byteswap.lo
+#   CC       module/zfs/libzpool_la-zfs_chksum.lo
+#   CC       module/zfs/libzpool_la-zfs_fm.lo
+#   CC       module/zfs/libzpool_la-zfs_fuid.lo
+#   CC       module/zfs/libzpool_la-zfs_ratelimit.lo
+#   CC       module/zfs/libzpool_la-zfs_rlock.lo
+#   CC       module/zfs/libzpool_la-zfs_sa.lo
+#   CC       module/zfs/libzpool_la-zil.lo
+#   CC       module/zfs/libzpool_la-zio.lo
+#   CC       module/zfs/libzpool_la-zio_checksum.lo
+#   CC       module/zfs/libzpool_la-zio_compress.lo
+#   CC       module/zfs/libzpool_la-zio_inject.lo
+#   CC       module/zfs/libzpool_la-zle.lo
+#   CC       module/zfs/libzpool_la-zrlock.lo
+#   CC       module/zfs/libzpool_la-zthr.lo
+#   CC       module/icp/spi/libicp_la-kcf_spi.lo
+#   CC       module/icp/api/libicp_la-kcf_ctxops.lo
+#   CC       module/icp/api/libicp_la-kcf_cipher.lo
+#   CC       module/icp/api/libicp_la-kcf_mac.lo
+#   CC       module/icp/algs/aes/libicp_la-aes_impl_aesni.lo
+#   CC       module/icp/algs/aes/libicp_la-aes_impl_generic.lo
+#   CC       module/icp/algs/aes/libicp_la-aes_impl_x86-64.lo
+#   CC       module/icp/algs/aes/libicp_la-aes_impl.lo
+#   CC       module/icp/algs/aes/libicp_la-aes_modes.lo
+#   CC       module/icp/algs/blake3/libicp_la-blake3.lo
+#   CC       module/icp/algs/blake3/libicp_la-blake3_generic.lo
+#   CC       module/icp/algs/blake3/libicp_la-blake3_impl.lo
+#   CC       module/icp/algs/blake3/libicp_la-blake3_x86-64.lo
+#   CC       module/icp/algs/edonr/libicp_la-edonr.lo
+#   CC       module/icp/algs/modes/libicp_la-modes.lo
+#   CC       module/icp/algs/modes/libicp_la-cbc.lo
+#   CC       module/icp/algs/modes/libicp_la-gcm_generic.lo
+#   CC       module/icp/algs/modes/libicp_la-gcm_pclmulqdq.lo
+#   CC       module/icp/algs/modes/libicp_la-gcm.lo
+#   CC       module/icp/algs/modes/libicp_la-ctr.lo
+#   CC       module/icp/algs/modes/libicp_la-ccm.lo
+#   CC       module/icp/algs/modes/libicp_la-ecb.lo
+#   CC       module/icp/algs/sha2/libicp_la-sha2.lo
+#   CC       module/icp/algs/skein/libicp_la-skein.lo
+#   CC       module/icp/algs/skein/libicp_la-skein_block.lo
+#   CC       module/icp/algs/skein/libicp_la-skein_iv.lo
+#   CC       module/icp/libicp_la-illumos-crypto.lo
+#   CC       module/icp/io/libicp_la-aes.lo
+#   CC       module/icp/io/libicp_la-sha2_mod.lo
+#   CC       module/icp/io/libicp_la-skein_mod.lo
+#   CC       module/icp/core/libicp_la-kcf_sched.lo
+#   CC       module/icp/core/libicp_la-kcf_prov_lib.lo
+#   CC       module/icp/core/libicp_la-kcf_callprov.lo
+#   CC       module/icp/core/libicp_la-kcf_mech_tabs.lo
+#   CC       module/icp/core/libicp_la-kcf_prov_tabs.lo
+#   CC       module/icp/asm-x86_64/aes/libicp_la-aeskey.lo
+#   CPPAS    module/icp/asm-x86_64/aes/libicp_la-aes_amd64.lo
+#   CPPAS    module/icp/asm-x86_64/aes/libicp_la-aes_aesni.lo
+#   CPPAS    module/icp/asm-x86_64/modes/libicp_la-gcm_pclmulqdq.lo
+#   CPPAS    module/icp/asm-x86_64/modes/libicp_la-aesni-gcm-x86_64.lo
+#   CPPAS    module/icp/asm-x86_64/modes/libicp_la-ghash-x86_64.lo
+#   CPPAS    module/icp/asm-x86_64/sha2/libicp_la-sha256_impl.lo
+#   CPPAS    module/icp/asm-x86_64/sha2/libicp_la-sha512_impl.lo
+#   CPPAS    module/icp/asm-x86_64/blake3/libicp_la-blake3_avx2.lo
+#   CPPAS    module/icp/asm-x86_64/blake3/libicp_la-blake3_avx512.lo
+#   CPPAS    module/icp/asm-x86_64/blake3/libicp_la-blake3_sse2.lo
+#   CPPAS    module/icp/asm-x86_64/blake3/libicp_la-blake3_sse41.lo
 #   CCLD     libicp.la
 # copying selected object files to avoid basename conflicts...
-# make[2]: Leaving directory '/zfs/lib/libicp'
-# Making check in libshare
-# make[2]: Entering directory '/zfs/lib/libshare'
-#   CC       libshare.lo
-#   CC       os/linux/nfs.lo
-#   CC       os/linux/smb.lo
-#   CCLD     libshare.la
-# make[2]: Leaving directory '/zfs/lib/libshare'
-# Making check in libspl
-# make[2]: Entering directory '/zfs/lib/libspl'
-# Making check in include
-# make[3]: Entering directory '/zfs/lib/libspl/include'
-# Making check in ia32
-# make[4]: Entering directory '/zfs/lib/libspl/include/ia32'
-# Making check in sys
-# make[5]: Entering directory '/zfs/lib/libspl/include/ia32/sys'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/lib/libspl/include/ia32/sys'
-# make[5]: Entering directory '/zfs/lib/libspl/include/ia32'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/lib/libspl/include/ia32'
-# make[4]: Leaving directory '/zfs/lib/libspl/include/ia32'
-# Making check in rpc
-# make[4]: Entering directory '/zfs/lib/libspl/include/rpc'
-# make[4]: Nothing to be done for 'check'.
-# make[4]: Leaving directory '/zfs/lib/libspl/include/rpc'
-# Making check in sys
-# make[4]: Entering directory '/zfs/lib/libspl/include/sys'
-# Making check in dktp
-# make[5]: Entering directory '/zfs/lib/libspl/include/sys/dktp'
-# make[5]: Nothing to be done for 'check'.
-# make[5]: Leaving directory '/zfs/lib/libspl/include/sys/dktp'
-# make[5]: Entering directory '/zfs/lib/libspl/include/sys'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/lib/libspl/include/sys'
-# make[4]: Leaving directory '/zfs/lib/libspl/include/sys'
-# Making check in util
-# make[4]: Entering directory '/zfs/lib/libspl/include/util'
-# make[4]: Nothing to be done for 'check'.
-# make[4]: Leaving directory '/zfs/lib/libspl/include/util'
-# Making check in os
-# make[4]: Entering directory '/zfs/lib/libspl/include/os'
-# Making check in linux
-# make[5]: Entering directory '/zfs/lib/libspl/include/os/linux'
-# Making check in sys
-# make[6]: Entering directory '/zfs/lib/libspl/include/os/linux/sys'
-# make[6]: Nothing to be done for 'check'.
-# make[6]: Leaving directory '/zfs/lib/libspl/include/os/linux/sys'
-# make[6]: Entering directory '/zfs/lib/libspl/include/os/linux'
-# make[6]: Nothing to be done for 'check-am'.
-# make[6]: Leaving directory '/zfs/lib/libspl/include/os/linux'
-# make[5]: Leaving directory '/zfs/lib/libspl/include/os/linux'
-# make[5]: Entering directory '/zfs/lib/libspl/include/os'
-# make[5]: Nothing to be done for 'check-am'.
-# make[5]: Leaving directory '/zfs/lib/libspl/include/os'
-# make[4]: Leaving directory '/zfs/lib/libspl/include/os'
-# make[4]: Entering directory '/zfs/lib/libspl/include'
-# make[4]: Nothing to be done for 'check-am'.
-# make[4]: Leaving directory '/zfs/lib/libspl/include'
-# make[3]: Leaving directory '/zfs/lib/libspl/include'
-# make[3]: Entering directory '/zfs/lib/libspl'
-#   CC       assert.lo
-#   CCLD     libspl_assert.la
-#   CC       atomic.lo
-#   CC       list.lo
-#   CC       mkdirp.lo
-#   CC       page.lo
-#   CC       strlcat.lo
-#   CC       strlcpy.lo
-#   CC       timestamp.lo
-#   CC       os/linux/getexecname.lo
-#   CC       os/linux/gethostid.lo
-#   CC       os/linux/getmntany.lo
-#   CC       os/linux/zone.lo
-#   CCLD     libspl.la
-# make[3]: Leaving directory '/zfs/lib/libspl'
-# make[2]: Leaving directory '/zfs/lib/libspl'
-# Making check in libtpool
-# make[2]: Entering directory '/zfs/lib/libtpool'
-#   CC       thread_pool.lo
-#   CCLD     libtpool.la
-# make[2]: Leaving directory '/zfs/lib/libtpool'
-# Making check in libzstd
-# make[2]: Entering directory '/zfs/lib/libzstd'
-#   CC       lib/zstd.lo
-#   CC       zfs_zstd.lo
-#   CCLD     libzstd.la
-# make[2]: Leaving directory '/zfs/lib/libzstd'
-# Making check in libefi
-# make[2]: Entering directory '/zfs/lib/libefi'
-#   CC       rdwr_efi.lo
-#   CCLD     libefi.la
-# make[2]: Leaving directory '/zfs/lib/libefi'
-# Making check in libnvpair
-# make[2]: Entering directory '/zfs/lib/libnvpair'
-#   CC       libnvpair.lo
-#   CC       libnvpair_json.lo
-#   CC       nvpair_alloc_system.lo
-#   CC       nvpair_alloc_fixed.lo
-#   CC       nvpair.lo
-#   CC       fnvpair.lo
-#   CCLD     libnvpair.la
-# make[2]: Leaving directory '/zfs/lib/libnvpair'
-# Making check in libzutil
-# make[2]: Entering directory '/zfs/lib/libzutil'
-#   CC       zutil_device_path.lo
-#   CC       zutil_import.lo
-#   CC       zutil_nicenum.lo
-#   CC       zutil_pool.lo
-#   CC       os/linux/zutil_device_path_os.lo
-#   CC       os/linux/zutil_import_os.lo
-#   CC       os/linux/zutil_compat.lo
-#   CCLD     libzutil.la
-# make[2]: Leaving directory '/zfs/lib/libzutil'
-# Making check in libunicode
-# make[2]: Entering directory '/zfs/lib/libunicode'
-#   CC       u8_textprep.lo
-#   CC       uconv.lo
+#   CC       module/unicode/libunicode_la-u8_textprep.lo
+#   CC       module/unicode/libunicode_la-uconv.lo
 #   CCLD     libunicode.la
-# make[2]: Leaving directory '/zfs/lib/libunicode'
-# Making check in libuutil
-# make[2]: Entering directory '/zfs/lib/libuutil'
-#   CC       uu_alloc.lo
-#   CC       uu_avl.lo
-#   CC       uu_dprintf.lo
-#   CC       uu_ident.lo
-#   CC       uu_list.lo
-#   CC       uu_misc.lo
-#   CC       uu_open.lo
-#   CC       uu_pname.lo
-#   CC       uu_string.lo
-#   CCLD     libuutil.la
-# make[2]: Leaving directory '/zfs/lib/libuutil'
-# Making check in libzfs_core
-# make[2]: Entering directory '/zfs/lib/libzfs_core'
-#   CC       libzfs_core.lo
-#   CCLD     libzfs_core.la
-# make[2]: Leaving directory '/zfs/lib/libzfs_core'
-# Making check in libzfs
-# make[2]: Entering directory '/zfs/lib/libzfs'
-#   CC       libzfs_changelist.lo
-#   CC       libzfs_config.lo
-#   CC       libzfs_crypto.lo
-#   CC       libzfs_dataset.lo
-#   CC       libzfs_diff.lo
-#   CC       libzfs_import.lo
-#   CC       libzfs_iter.lo
-#   CC       libzfs_mount.lo
-#   CC       libzfs_pool.lo
-#   CC       libzfs_sendrecv.lo
-#   CC       libzfs_status.lo
-#   CC       libzfs_util.lo
-#   CC       os/linux/libzfs_mount_os.lo
-#   CC       os/linux/libzfs_pool_os.lo
-#   CC       os/linux/libzfs_sendrecv_os.lo
-#   CC       os/linux/libzfs_util_os.lo
-#   CC       algs/sha2/sha2.lo
-#   CC       cityhash.lo
-#   CC       zfeature_common.lo
-#   CC       zfs_comutil.lo
-#   CC       zfs_deleg.lo
-#   CC       zfs_fletcher.lo
-#   CC       zfs_fletcher_aarch64_neon.lo
-#   CC       zfs_fletcher_avx512.lo
-#   CC       zfs_fletcher_intel.lo
-#   CC       zfs_fletcher_sse.lo
-#   CC       zfs_fletcher_superscalar.lo
-#   CC       zfs_fletcher_superscalar4.lo
-#   CC       zfs_namecheck.lo
-#   CC       zfs_prop.lo
-#   CC       zpool_prop.lo
-#   CC       zprop_common.lo
-#   CCLD     libzfs.la
-# make[2]: Leaving directory '/zfs/lib/libzfs'
-# Making check in libzpool
-# make[2]: Entering directory '/zfs/lib/libzpool'
-#   CC       kernel.lo
-#   CC       taskq.lo
-#   CC       util.lo
-#   CC       zfeature_common.lo
-#   CC       zfs_comutil.lo
-#   CC       zfs_deleg.lo
-#   CC       zfs_fletcher.lo
-#   CC       zfs_fletcher_aarch64_neon.lo
-#   CC       zfs_fletcher_avx512.lo
-#   CC       zfs_fletcher_intel.lo
-#   CC       zfs_fletcher_sse.lo
-#   CC       zfs_fletcher_superscalar.lo
-#   CC       zfs_fletcher_superscalar4.lo
-#   CC       zfs_namecheck.lo
-#   CC       zfs_prop.lo
-#   CC       zpool_prop.lo
-#   CC       zprop_common.lo
-#   CC       abd.lo
-#   CC       abd_os.lo
-#   CC       aggsum.lo
-#   CC       arc.lo
-#   CC       arc_os.lo
-#   CC       blkptr.lo
-#   CC       bplist.lo
-#   CC       bpobj.lo
-#   CC       bptree.lo
-#   CC       btree.lo
-#   CC       bqueue.lo
-#   CC       cityhash.lo
-#   CC       dbuf.lo
-#   CC       dbuf_stats.lo
-#   CC       ddt.lo
-#   CC       ddt_zap.lo
-#   CC       dmu.lo
-#   CC       dmu_diff.lo
-#   CC       dmu_object.lo
-#   CC       dmu_objset.lo
-#   CC       dmu_recv.lo
-#   CC       dmu_redact.lo
-#   CC       dmu_send.lo
-#   CC       dmu_traverse.lo
-#   CC       dmu_tx.lo
-#   CC       dmu_zfetch.lo
-#   CC       dnode.lo
-#   CC       dnode_sync.lo
-#   CC       dsl_bookmark.lo
-#   CC       dsl_dataset.lo
-#   CC       dsl_deadlist.lo
-#   CC       dsl_deleg.lo
-#   CC       dsl_dir.lo
-#   CC       dsl_crypt.lo
-#   CC       dsl_pool.lo
-#   CC       dsl_prop.lo
-#   CC       dsl_scan.lo
-#   CC       dsl_synctask.lo
-#   CC       dsl_destroy.lo
-#   CC       dsl_userhold.lo
-#   CC       edonr_zfs.lo
-#   CC       hkdf.lo
-#   CC       fm.lo
-#   CC       gzip.lo
-#   CC       lzjb.lo
-#   CC       lz4.lo
-#   CC       metaslab.lo
-#   CC       mmp.lo
-#   CC       multilist.lo
-#   CC       objlist.lo
-#   CC       pathname.lo
-#   CC       range_tree.lo
-#   CC       refcount.lo
-#   CC       rrwlock.lo
-#   CC       sa.lo
-#   CC       sha256.lo
-#   CC       skein_zfs.lo
-#   CC       spa.lo
-#   CC       spa_boot.lo
-#   CC       spa_checkpoint.lo
-#   CC       spa_config.lo
-#   CC       spa_errlog.lo
-#   CC       spa_history.lo
-#   CC       spa_log_spacemap.lo
-#   CC       spa_misc.lo
-#   CC       spa_stats.lo
-#   CC       space_map.lo
-#   CC       space_reftree.lo
-#   CC       txg.lo
-#   CC       trace.lo
-#   CC       uberblock.lo
-#   CC       unique.lo
-#   CC       vdev.lo
-#   CC       vdev_cache.lo
-#   CC       vdev_draid.lo
-#   CC       vdev_draid_rand.lo
-#   CC       vdev_file.lo
-#   CC       vdev_indirect_births.lo
-#   CC       vdev_indirect.lo
-#   CC       vdev_indirect_mapping.lo
-#   CC       vdev_initialize.lo
-#   CC       vdev_label.lo
-#   CC       vdev_mirror.lo
-#   CC       vdev_missing.lo
-#   CC       vdev_queue.lo
-#   CC       vdev_raidz.lo
-#   CC       vdev_raidz_math_aarch64_neon.lo
-#   CC       vdev_raidz_math_aarch64_neonx2.lo
-#   CC       vdev_raidz_math_avx2.lo
-#   CC       vdev_raidz_math_avx512bw.lo
-#   CC       vdev_raidz_math_avx512f.lo
-#   CC       vdev_raidz_math.lo
-#   CC       vdev_raidz_math_scalar.lo
-#   CC       vdev_raidz_math_sse2.lo
-#   CC       vdev_raidz_math_ssse3.lo
-#   CC       vdev_raidz_math_powerpc_altivec.lo
-#   CC       vdev_rebuild.lo
-#   CC       vdev_removal.lo
-#   CC       vdev_root.lo
-#   CC       vdev_trim.lo
-#   CC       zap.lo
-#   CC       zap_leaf.lo
-#   CC       zap_micro.lo
-#   CC       zcp.lo
-#   CC       zcp_get.lo
-#   CC       zcp_global.lo
-#   CC       zcp_iter.lo
-#   CC       zcp_set.lo
-#   CC       zcp_synctask.lo
-#   CC       zfeature.lo
-#   CC       zfs_byteswap.lo
-#   CC       zfs_debug.lo
-#   CC       zfs_fm.lo
-#   CC       zfs_fuid.lo
-#   CC       zfs_racct.lo
-#   CC       zfs_sa.lo
-#   CC       zfs_znode.lo
-#   CC       zfs_ratelimit.lo
-#   CC       zfs_rlock.lo
-#   CC       zil.lo
-#   CC       zio.lo
-#   CC       zio_checksum.lo
-#   CC       zio_compress.lo
-#   CC       zio_crypt.lo
-#   CC       zio_inject.lo
-#   CC       zle.lo
-#   CC       zrlock.lo
-#   CC       zthr.lo
-#   CC       lapi.lo
-#   CC       lauxlib.lo
-#   CC       lbaselib.lo
-#   CC       lcode.lo
-#   CC       lcompat.lo
-#   CC       lcorolib.lo
-#   CC       lctype.lo
-#   CC       ldebug.lo
-#   CC       ldo.lo
-#   CC       lfunc.lo
-#   CC       lgc.lo
-#   CC       llex.lo
-#   CC       lmem.lo
-#   CC       lobject.lo
-#   CC       lopcodes.lo
-#   CC       lparser.lo
-#   CC       lstate.lo
-#   CC       lstring.lo
-#   CC       lstrlib.lo
-#   CC       ltable.lo
-#   CC       ltablib.lo
-#   CC       ltm.lo
-#   CC       lvm.lo
-#   CC       lzio.lo
+#   CC       lib/libnvpair/libnvpair_la-libnvpair.lo
+#   CC       lib/libnvpair/libnvpair_la-libnvpair_json.lo
+#   CC       lib/libnvpair/libnvpair_la-nvpair_alloc_system.lo
+#   CC       module/nvpair/libnvpair_la-nvpair_alloc_fixed.lo
+#   CC       module/nvpair/libnvpair_la-nvpair.lo
+#   CC       module/nvpair/libnvpair_la-fnvpair.lo
+#   CC       lib/libspl/libspl_assert_la-assert.lo
+#   CCLD     libspl_assert.la
+#   CCLD     libnvpair.la
+#   CC       module/zstd/lib/common/libzstd_la-entropy_common.lo
+#   CC       module/zstd/lib/common/libzstd_la-error_private.lo
+#   CC       module/zstd/lib/common/libzstd_la-fse_decompress.lo
+#   CC       module/zstd/lib/common/libzstd_la-pool.lo
+#   CC       module/zstd/lib/common/libzstd_la-zstd_common.lo
+#   CC       module/zstd/lib/compress/libzstd_la-fse_compress.lo
+#   CC       module/zstd/lib/compress/libzstd_la-hist.lo
+#   CC       module/zstd/lib/compress/libzstd_la-huf_compress.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_compress_literals.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_compress_sequences.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_compress_superblock.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_compress.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_double_fast.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_fast.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_lazy.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_ldm.lo
+#   CC       module/zstd/lib/compress/libzstd_la-zstd_opt.lo
+#   CC       module/zstd/lib/decompress/libzstd_la-huf_decompress.lo
+#   CC       module/zstd/lib/decompress/libzstd_la-zstd_ddict.lo
+#   CC       module/zstd/lib/decompress/libzstd_la-zstd_decompress.lo
+#   CC       module/zstd/lib/decompress/libzstd_la-zstd_decompress_block.lo
+#   CC       module/zstd/libzstd_la-zfs_zstd.lo
+#   CCLD     libzstd.la
+#   CC       lib/libzutil/libzutil_la-zutil_device_path.lo
+#   CC       lib/libzutil/libzutil_la-zutil_import.lo
+#   CC       lib/libzutil/libzutil_la-zutil_nicenum.lo
+#   CC       lib/libzutil/libzutil_la-zutil_pool.lo
+#   CC       lib/libzutil/os/linux/libzutil_la-zutil_setproctitle.lo
+#   CC       lib/libzutil/os/linux/libzutil_la-zutil_device_path_os.lo
+#   CC       lib/libzutil/os/linux/libzutil_la-zutil_import_os.lo
+#   CC       module/avl/libavl_la-avl.lo
+#   CCLD     libavl.la
+#   CC       lib/libtpool/libtpool_la-thread_pool.lo
+#   CCLD     libtpool.la
+#   CC       lib/libspl/libspl_la-atomic.lo
+#   CC       lib/libspl/libspl_la-getexecname.lo
+#   CC       lib/libspl/libspl_la-list.lo
+#   CC       lib/libspl/libspl_la-mkdirp.lo
+#   CC       lib/libspl/libspl_la-page.lo
+#   CC       lib/libspl/libspl_la-strlcat.lo
+#   CC       lib/libspl/libspl_la-strlcpy.lo
+#   CC       lib/libspl/libspl_la-timestamp.lo
+#   CC       lib/libspl/os/linux/libspl_la-getexecname.lo
+#   CC       lib/libspl/os/linux/libspl_la-gethostid.lo
+#   CC       lib/libspl/os/linux/libspl_la-getmntany.lo
+#   CC       lib/libspl/os/linux/libspl_la-zone.lo
+#   CCLD     libspl.la
+# copying selected object files to avoid basename conflicts...
+#   CC       lib/libefi/libefi_la-rdwr_efi.lo
+#   CCLD     libefi.la
+#   CCLD     libzutil.la
 #   CCLD     libzpool.la
-# make[2]: Leaving directory '/zfs/lib/libzpool'
-# Making check in libzfsbootenv
-# make[2]: Entering directory '/zfs/lib/libzfsbootenv'
-#   CC       lzbe_device.lo
-#   CC       lzbe_pair.lo
-#   CC       lzbe_util.lo
-#   CCLD     libzfsbootenv.la
-# make[2]: Leaving directory '/zfs/lib/libzfsbootenv'
-# Making check in libnvpair
-# make[2]: Entering directory '/zfs/lib/libnvpair'
-# make[2]: Nothing to be done for 'check'.
-# make[2]: Leaving directory '/zfs/lib/libnvpair'
-# make[2]: Entering directory '/zfs/lib'
-# make[2]: Nothing to be done for 'check-am'.
-# make[2]: Leaving directory '/zfs/lib'
-# make[1]: Leaving directory '/zfs/lib'
-# Making check in tests
-# make[1]: Entering directory '/zfs/tests'
-# Making check in runfiles
-# make[2]: Entering directory '/zfs/tests/runfiles'
-# make[2]: Nothing to be done for 'check'.
-# make[2]: Leaving directory '/zfs/tests/runfiles'
-# Making check in test-runner
-# make[2]: Entering directory '/zfs/tests/test-runner'
-# Making check in bin
-# make[3]: Entering directory '/zfs/tests/test-runner/bin'
-#   GEN      test-runner.py
-#   GEN      zts-report.py
-# make[3]: Leaving directory '/zfs/tests/test-runner/bin'
-# Making check in include
-# make[3]: Entering directory '/zfs/tests/test-runner/include'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/tests/test-runner/include'
-# Making check in man
-# make[3]: Entering directory '/zfs/tests/test-runner/man'
-# make[3]: Nothing to be done for 'check'.
-# make[3]: Leaving directory '/zfs/tests/test-runner/man'
-# make[3]: Entering directory '/zfs/tests/test-runner'
-# make[3]: Nothing to be done for 'check-am'.
-# make[3]: Leaving directory '/zfs/tests/test-runner'
-# make[2]: Leaving directory '/zfs/tests/test-runner'
-# Making check in zfs-tests
-# make[2]: Entering directory '/zfs/tests/zfs-tests'
-# Making check in cmd
-# make[3]: Entering directory '/zfs/tests/zfs-tests/cmd'
-# Making check in badsend
-# make[4]: Entering directory '/zfs/tests/zfs-tests/cmd/badsend'
-#   CC       badsend.o
-#   CCLD     badsend
-# clang: error: no such file or directory: '/zfs/lib/libzfs_core/.libs/libzfs_core.so'
-# clang: error: no such file or directory: '/zfs/lib/libzfs/.libs/libzfs.so'
-# clang: error: no such file or directory: '/zfs/lib/libnvpair/.libs/libnvpair.so'·
-# make[4]: *** [Makefile:781: badsend] Error 1
-# make[4]: Leaving directory '/zfs/tests/zfs-tests/cmd/badsend'
-# make[3]: *** [Makefile:718: check-recursive] Error 1
-# make[3]: Leaving directory '/zfs/tests/zfs-tests/cmd'
-# make[2]: *** [Makefile:701: check-recursive] Error 1
-# make[2]: Leaving directory '/zfs/tests/zfs-tests'
-# make[1]: *** [Makefile:705: check-recursive] Error 1
-# make[1]: Leaving directory '/zfs/tests'
-# make: *** [Makefile:933: check-recursive] Error 1
+#   CC       lib/libzfs_core/libzfs_core_la-libzfs_core.lo
+#   CC       lib/libzfs_core/os/linux/libzfs_core_la-libzfs_core_ioctl.lo
+#   CCLD     libzfs_core.la
+#   CCLD     raidz_test
+# clang: error: no such file or directory: './.libs/libzpool.so'
+# clang: error: no such file or directory: './.libs/libzfs_core.so'
+# make[1]: *** [Makefile:6423: raidz_test] Error 1
+# make[1]: Leaving directory '/zfs'
+# make: *** [Makefile:11899: check-recursive] Error 1
