@@ -29,11 +29,19 @@ Dockerfile
 !tests/**
 !udev/**
 
+!AUTHORS
 !autogen.sh
+!CODE_OF_CONDUCT.md
 !configure.ac
 !copy-builtin
+!COPYRIGHT
+!LICENSE
 !Makefile.am
 !META
+!NEWS
+!NOTICE
+!README.md
+!RELEASES.md
 !TEST
 !zfs.release.in
 
