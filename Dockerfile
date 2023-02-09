@@ -17,17 +17,22 @@ ARG v=15
 RUN apt-get install -y --no-install-recommends \
       bc \
       bison \
+      build-essential:native \
       clang-$v \
+      cpio \
       flex \
+      kmod \
       libelf-dev \
+      libssl-dev:native \
       lld-$v \
       llvm-$v \
-      make
+      make \
+      rsync
 
 # Configure the Linux kernel with LLVM/Clang
 RUN cd linux && \
-    make defconfig prepare LLVM=-$v && \
-    grep ^CONFIG_BLOCK=y .config
+      make -j $(nproc --all) defconfig prepare bindeb-pkg CC=clang-$v LLVM=-$v && \
+      grep ^CONFIG_BLOCK=y .config
 
 # Install the dependencies to build ZFS with Clang
 RUN apt-get install -y --no-install-recommends \
@@ -57,11 +62,11 @@ COPY . .
 RUN ./autogen.sh
 
 RUN set -x && \
-    d=$(cd ../linux && pwd) && \
-    export CC=clang-$v && \
-    export LD=lld-$v && \
-    export LLVM=-$v && \
-    KERNEL_CC=$CC KERNEL_LD=$LD KERNEL_LLVM=$LLVM \
+      d=$(cd ../linux && pwd) && \
+      export CC=clang-$v && \
+      export LD=lld-$v && \
+      export LLVM=-$v && \
+      KERNEL_CC=$CC KERNEL_LD=$LD KERNEL_LLVM=$LLVM \
       ./configure -v \
       --enable-linux-builtin=yes \
       --includedir=$d/include \
