@@ -60,6 +60,8 @@
 !TEST
 !zfs.release.in
 
+!.dockerignore
+!Dockerfile.*
 
 #
 # Normal rules
