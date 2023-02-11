@@ -42,11 +42,17 @@ RUN apt-get install -y --no-install-recommends \
       uuid-dev \
       zlib1g-dev
 
+# Kernel version: v5.18.19, v6.1.10 ...
+ARG vLinux=v6.1.10 
+
+# Clone Linux repo
+RUN git clone -b $vLinux --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
+
 # Version of LLVM, can "-13", "-14", "-15" or "" (empty for GCC)
-ARG LLVM=
+ARG LLVM=-15
 
 # if LLVM is set, use llvmPkg=llvm$LLVM
-ARG llvmPkg=
+ARG llvmPkg=llvm$LLVM
 
 # Compiler, can be: gcc-10 gcc-11 gcc-12 clang-13 clang-14 clang-15
 ARG CC=clang-15
@@ -60,12 +66,6 @@ RUN apt-get install -y --no-install-recommends \
       $CC \
       $ldPkg \
       $llvmPkg
-
-# Kernel version: v5.18.19, v6.1.10 ...
-ARG vLinux=v6.1.10 
-
-# Clone Linux repo
-RUN git clone -b $vLinux --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git
 
 # Configure the Linux kernel
 RUN cd linux && \
