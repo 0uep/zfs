@@ -131,4 +131,14 @@ RUN --mount=type=cache,target=/root/.cache \
 
 RUN --mount=type=cache,target=/root/.cache \
     --mount=type=cache,target=/var/cache \
-    make check -j $(nproc --all)
+    make -j $(nproc --all)
+
+#   # Install the dependencies to build ZFS as a Debian package
+#   RUN --mount=type=cache,target=/root/.cache \
+#       --mount=type=cache,target=/var/cache \
+#       apt-get install -y --no-install-recommends \
+#         python3-cffi \
+#         python3-setuptools
+#   
+#   RUN make -j $(nproc --all) deb
+

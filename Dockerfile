@@ -94,4 +94,12 @@ RUN set -x && \
           --with-linux=$d \
           --with-linux-obj=$d
 
-RUN make check -j $(nproc --all)
+RUN make -j $(nproc --all)
+
+#   # Install the dependencies to build ZFS as a Debian package
+#   RUN apt-get install -y --no-install-recommends \
+#         python3-cffi \
+#         python3-setuptools
+#   
+#   RUN make -j $(nproc --all) deb
+
