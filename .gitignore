@@ -61,6 +61,7 @@
 !zfs.release.in
 
 !.dockerignore
+!docker-compose.yml
 !Dockerfile.*
 
 #

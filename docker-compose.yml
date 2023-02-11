@@ -1,0 +1,57 @@
+version: "3.9"
+
+services:
+
+  build-with-gcc-10:
+    build:
+      context: .
+      args:
+        - LLVM=
+        - llvmPkg=
+        - ldPkg=lld-15
+        - CC=gcc-10
+
+  build-with-gcc-11:
+    build:
+      context: .
+      args:
+        - LLVM=
+        - llvmPkg=
+        - ldPkg=lld-15
+        - CC=gcc-11
+
+  build-with-gcc-12:
+    build:
+      context: .
+      args:
+        - LLVM=
+        - llvmPkg=
+        - ldPkg=lld-15
+        - CC=gcc-12
+
+  build-with-clang-13:
+    build:
+      context: .
+      args:
+        - LLVM=-13
+        - llvmPkg=llvm-13
+        - ldPkg=lld-13
+        - CC=clang-13
+
+  build-with-clang-14:
+    build:
+      context: .
+      args:
+        - LLVM=-14
+        - llvmPkg=llvm-14
+        - ldPkg=lld-14
+        - CC=clang-14
+
+  build-with-clang-15:
+    build:
+      context: .
+      args:
+        - LLVM=-15
+        - llvmPkg=llvm-15
+        - ldPkg=lld-15
+        - CC=clang-15
