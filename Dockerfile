@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: CC0-1.0
+
 # Version of LLVM, can "-13", "-14", "-15" or "" (empty for GCC)
 ARG LLVM=-15
 
@@ -60,15 +62,10 @@ RUN set -ex                                              ;\
       python3-dev                                         \
       python3-packaging                                   \
       uuid-dev                                            \
-      zlib1g-dev
-
-# RUN echo "Optional: CCache to speedup the next attempts" ;\
-#     apt-get install -y --no-install-recommends            \
-#       ccache                                             ;\
-#     ccache --max-files 0 --max-size 0 --show-config
-# 
-# ENV PATH=/usr/lib/ccache:$PATH
-
+      zlib1g-dev                                         ;\
+    echo "Optional: pahole for BTF type information"     ;\
+    apt-get install -y --no-install-recommends            \
+      pahole
 ##################################################
 
 FROM base AS compiler
@@ -111,13 +108,13 @@ FROM compiler AS builder
 
 COPY --from=linux-code /linux /linux
 
+COPY .config /linux/.config
+
 ARG CC
 ARG LD
 ARG LLVM
-ARG CFLAGS
-ARG LDFLAGS
 
-RUN make -C linux defconfig CC="$CC" LD="$LD" LLVM="$LLVM"
+RUN make -C linux oldconfig CC="$CC" LD="$LD" LLVM="$LLVM"
 
 # Disable -Werror because Clang fires warnings in OpenZFS source code
 RUN echo "CONFIG_WERROR=n"                       >>linux/.config
@@ -133,8 +130,14 @@ RUN echo "CONFIG_ARCH_SUPPORTS_LTO_CLANG=y"      >>linux/.config
 RUN echo "CONFIG_ARCH_SUPPORTS_LTO_CLANG_THIN=y" >>linux/.config
 RUN echo "CONFIG_HAS_LTO_CLANG=y"                >>linux/.config
 RUN echo "CONFIG_LTO_CLANG_FULL=y"               >>linux/.config
+# Disable deduplicated BTF type information (requires "apt install pahole")
+# see: https://stackoverflow.com/q/61657707#71977338
+RUN echo "CONFIG_DEBUG_INFO_BTF=n"               >>linux/.config
 
 RUN make -C linux mod2yesconfig CC="$CC" LD="$LD" LLVM="$LLVM"
+
+ARG CFLAGS
+ARG LDFLAGS
 
 RUN set -x                                 ;\
     echo "PATH=$PATH"                      ;\
@@ -142,7 +145,7 @@ RUN set -x                                 ;\
     command -V "$LC"                       ;\
     make -C linux prepare                   \
         CC="$CC" LD="$LD" LLVM="$LLVM"      \
-        KCFLAGS="$CFLAGS"                   \                    
+        KCFLAGS="$CFLAGS"                   \
         KLDFLAGS+="$LDFLAGS"' $(KCFLAGS)'
 
 COPY --from=zfs-code /zfs /zfs
@@ -166,15 +169,12 @@ RUN set -ex                         ;\
 # Enable built-in ZFS
 RUN echo "CONFIG_ZFS=y" >>linux/.config
 
-RUN make -C /linux bzImage modules -j $(nproc --all) -l $(nproc --all)   || \
-    make -C /linux bzImage modules V=1
-
-# Extra: Provide a Debian package
-RUN make -C /linux bindeb-pkg -j $(nproc --all) -l $(nproc --all)        || \
-    make -C /linux bindeb-pkg V=1
+# Build a Debian package
+RUN make -C /linux modules bindeb-pkg -j $(nproc --all) -l $(nproc --all) || \
+    make -C /linux modules bindeb-pkg V=1
 
 ##################################################
 
 FROM scratch AS final
 
-COPY --from=builder /linux-* .
+COPY --from=builder /linux/.config /linux-* /deb-pkg/

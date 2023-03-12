@@ -62,15 +62,15 @@ else:
 
 ## Retrieve the debian package
 
-    mkdir -pv linzfs
+    mkdir -pv deb-pkg
     id=$(docker create linux-with-zfs-builtin "")
-    docker cp $id:/ linzfs
+    docker cp $id:/ deb-pkg
     docker rm $id
-    ls -lh linzfs/*deb
+    ls -lh deb-pkg/*deb
 
 ## Install
 
-    sudo dpkg -i linzfs/linux-[hi]*.deb
+    sudo dpkg -i deb-pkg/linux-[hi]*.deb
 
 ## Uninstall
 
@@ -158,14 +158,15 @@ Use a local virtual machine to test the kernel images:
 
 [Creative Commons Zero] &emsp; *No Rights Reserved* &emsp; ![(CC) ZERO] &nbsp; ![(0) PUBLIC DOMAIN]
 
+To the extent possible under law, I have waived all copyright
+and related/neighboring rights to the files in the "main" branch
+to be freely used without any restriction.
+This work is published from France since 2023.
+Refer to [CC0 Legal Code] or a copy in file [`COPYING`](./COPYING).
+
+SPDX-License-Identifier: CC0-1.0
+
 [Creative Commons Zero]: https://creativecommons.org/publicdomain/zero/1.0/deed "CC0 summary for non-lawyers"
 [(CC) ZERO]:             https://licensebuttons.net/l/zero/1.0/80x15.png "Logo Creative Commons Zero (CC0) 1.0"
 [(0) PUBLIC DOMAIN]:     https://licensebuttons.net/p/zero/1.0/80x15.png "Logo CC0 1.0 Public Domain"
-
-To the extent possible under law, I have waived all copyright
-and related or neighboring rights to these container related files.
-This work is published from France since 2023.
-Refer to [CC0 Legal Code] or a copy in file [`COPYING`].
-
-[CC0 Legal Code]: https://creativecommons.org/publicdomain/zero/1.0/legalcode "CC0 full legal text for lawyers"
-[`COPYING`]:      ./COPYING
+[CC0 Legal Code]:        https://creativecommons.org/publicdomain/zero/1.0/legalcode "CC0 full legal text for lawyers"

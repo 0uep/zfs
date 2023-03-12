@@ -1,7 +1,8 @@
-# syntax=docker/dockerfile:1.2
+# syntax=docker.io/docker/dockerfile:1.2
 # To easily reuse the build cache,
 # this Dockerfile uses "RUN --mount=..."
 # https://hub.docker.com/r/docker/dockerfile
+# SPDX-License-Identifier: CC0-1.0
 
 # Version of LLVM, can "-13", "-14", "-15" or "" (empty for GCC)
 ARG LLVM=-15
@@ -13,8 +14,8 @@ ARG CC=clang$LLVM
 ARG ldPkg=lld$LLVM
 ARG LD=ld.$ldPkg
 
-ARG CFLAGS="-march=native -O3 -falign-functions=64 -fno-semantic-interposition"
-ARG LDFLAGS="-Wl,-O2 -Wl,--as-needed"
+# ARG CFLAGS="-march=native -O3 -falign-functions=64 -fno-semantic-interposition"
+# ARG LDFLAGS="-Wl,-O2 -Wl,--as-needed"
 
 ##################################################
 
@@ -68,6 +69,16 @@ RUN --mount=type=cache,target=/root/.cache                \
       python3-packaging                                   \
       uuid-dev                                            \
       zlib1g-dev                                         ;\
+    echo "Optional: pahole for BTF type information"     ;\
+    apt-get install -y --no-install-recommends            \
+      pahole
+
+##################################################
+
+FROM base AS cached
+
+RUN --mount=type=cache,target=/root/.cache                \
+    --mount=type=cache,target=/var/cache                  \
     echo "Optional: CCache to speedup the next attempts" ;\
     apt-get install -y --no-install-recommends            \
       ccache                                             ;\
@@ -77,7 +88,7 @@ ENV PATH=/usr/lib/ccache:$PATH
 
 ##################################################
 
-FROM base AS compiler
+FROM cached AS compiler
 
 ARG CC
 ARG ldPkg
@@ -95,7 +106,7 @@ RUN --mount=type=cache,target=/root/.cache      \
 
 ##################################################
 
-FROM base AS linux-code
+FROM cached AS linux-code
 
 # Kernel version: v5.18.19, v6.1.10 ...
 ARG vLinux=linux-rolling-stable
@@ -105,7 +116,7 @@ RUN git clone -b $vLinux --depth 1 git://git.kernel.org/pub/scm/linux/kernel/git
 
 ##################################################
 
-FROM base AS zfs-code
+FROM cached AS zfs-code
 
 ARG vZFS=master
 
@@ -120,13 +131,13 @@ FROM compiler AS builder
 
 COPY --from=linux-code /linux /linux
 
+COPY .config /linux/.config
+
 ARG CC
 ARG LD
 ARG LLVM
-ARG CFLAGS
-ARG LDFLAGS
 
-RUN make -C linux defconfig CC="$CC" LD="$LD" LLVM="$LLVM"
+RUN make -C linux oldconfig CC="$CC" LD="$LD" LLVM="$LLVM"
 
 # Disable -Werror because Clang fires warnings in OpenZFS source code
 RUN echo "CONFIG_WERROR=n"                       >>linux/.config
@@ -142,17 +153,25 @@ RUN echo "CONFIG_ARCH_SUPPORTS_LTO_CLANG=y"      >>linux/.config
 RUN echo "CONFIG_ARCH_SUPPORTS_LTO_CLANG_THIN=y" >>linux/.config
 RUN echo "CONFIG_HAS_LTO_CLANG=y"                >>linux/.config
 RUN echo "CONFIG_LTO_CLANG_FULL=y"               >>linux/.config
+# Disable deduplicated BTF type information (requires "apt install pahole")
+# see: https://stackoverflow.com/q/61657707#71977338
+RUN echo "CONFIG_DEBUG_INFO_BTF=n"               >>linux/.config
+
+RUN echo "CONFIG_MODULES=y"                      >>linux/.config
 
 RUN make -C linux mod2yesconfig CC="$CC" LD="$LD" LLVM="$LLVM"
+
+# ARG CFLAGS
+# ARG LDFLAGS
 
 RUN set -x                                 ;\
     echo "PATH=$PATH"                      ;\
     command -V "$CC"                       ;\
     command -V "$LC"                       ;\
     make -C linux prepare                   \
-        CC="$CC" LD="$LD" LLVM="$LLVM"      \
-        KCFLAGS="$CFLAGS"                   \
-        KLDFLAGS+="$LDFLAGS"' $(KCFLAGS)'
+        CC="$CC" LD="$LD" LLVM="$LLVM"      
+#       KCFLAGS="$CFLAGS"                   \
+#       KLDFLAGS+="$LDFLAGS"' $(KCFLAGS)'
 
 COPY --from=zfs-code /zfs /zfs
 
@@ -165,29 +184,25 @@ RUN set -ex                         ;\
         KERNEL_CC="$CC"              \
         KERNEL_LD="$LD"              \
         KERNEL_LLVM="$LLVM"          \
-        CFLAGS="$CFLAGS $LDFLAGS"    \
         --disable-debug              \
         --disable-debuginfo          \
         --enable-linux-builtin=yes   \
         --with-linux=/linux         ;\
     ./copy-builtin /linux
 
+#       CFLAGS="$CFLAGS $LDFLAGS"    \
+
 # Enable built-in ZFS
 RUN echo "CONFIG_ZFS=y" >>linux/.config
 
-RUN --mount=type=cache,target=/root/.cache                                  \
-    --mount=type=cache,target=/var/cache                                    \
-    make -C /linux bzImage modules -j $(nproc --all) -l $(nproc --all)   || \
-    make -C /linux bzImage modules V=1
-
-# Extra: Provide a Debian package
-RUN --mount=type=cache,target=/root/.cache                                  \
-    --mount=type=cache,target=/var/cache                                    \
-    make -C /linux bindeb-pkg -j $(nproc --all) -l $(nproc --all)        || \
-    make -C /linux bindeb-pkg V=1
+# Build a Debian package
+RUN --mount=type=cache,target=/root/.cache                                   \
+    --mount=type=cache,target=/var/cache                                     \
+    make -C /linux modules bindeb-pkg -j $(nproc --all) -l $(nproc --all) || \
+    make -C /linux modules bindeb-pkg V=1
 
 ##################################################
 
 FROM scratch AS final
 
-COPY --from=builder /linux-* .
+COPY --from=builder /linux/.config /linux-* /deb-pkg/
